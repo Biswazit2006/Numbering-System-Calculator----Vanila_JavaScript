@@ -10,9 +10,13 @@ A simple, user-friendly calculator built with HTML, CSS, and Vanilla JavaScript 
 * **Input Validation:** Ensures the entered number is valid for the selected source base (e.g., prevents entering '2' in a Binary input).
 
 ## 🚀 Live Demo
+<<<<<<< HEAD
 
 Live (GitHub Pages): https://biswazit2006.github.io/Numbering-System-Calculator----Vanila_JavaScript/
 
+=======
+Live (GitHub Pages): https://biswazit2006.github.io/Numbering-System-Calculator----Vanila_JavaScript/
+>>>>>>> ce4329d12cf6e28e5b23b36fcbee2e58c8816ab5
 ## 📸 Screenshots
 
 A visual representation of the application interface on different devices.
@@ -71,9 +75,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
+<<<<<<< HEAD
 **Biswazit Biswas**
 
 * GitHub: [@biswazit2006](https://github.com/YourUsername)
 * Facebook: [@biswazit2006](https://facebook.com/YourUsername)
 * LinkedIn: [@biswazit2006](https://linkedin.com/YourUsername)
 * [\[Optional: Link to your Portfolio/LinkedIn\]](https://biswazit.kesug.com/)
+=======
+**[Your Name/GitHub Handle]**
+
+* GitHub: [@YourUsername](https://github.com/YourUsername)
+* [Optional: Link to your Portfolio/LinkedIn]
+>>>>>>> ce4329d12cf6e28e5b23b36fcbee2e58c8816ab5
