@@ -1,0 +1,119 @@
+/* Responsive css */
+@media only screen and (max-width: 768px) and (min-width: 320px) {
+  /* NAVIGATION */
+  .nav-bar .Logo-text {
+    font-size: 18px;
+  }
+
+  /* Main Container */
+  .main-container {
+    /* align-items: center; */
+    background-color: transparent;
+  }
+  /* Calculator Container */
+  .calc-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+    /* background-color: aqua; */
+    box-shadow: none;
+  }
+  /* Input container */
+  .input-container {
+    padding: 5% 2%;
+    /* margin-top: 5px; */
+  }
+  .input-container .input-row-container .input-btn{
+    font-size: 24px;
+    padding: 10px;
+  }
+
+
+  /* //////////////////////////////////// */
+  /* Buton Container  */
+.btn-container{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 1% 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-container .edit-bar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* background-color: var(--font-dark-colour); */
+}
+.btn-container.btn-container .edit-bar button{
+    width: 60px;
+    height: auto;
+    font-size: 38px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+}
+
+
+/* Button row Contaienr */
+.btn-container .btn-row-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.btn-container .btn-row-container button{
+    font-size: 42px;
+    font-weight: 600;
+    padding: 5px 10px; 
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+}
+.btn-container .btn-row-container .number-btn{
+  width: 20%;
+  min-width: 20%;
+}
+/* Ac button class for AC Button of desktop view*/
+.btn-container .btn-row-container .ac-btn-desk{
+  /* display: none; */
+}
+/* AC button class for AC button of mobile view  */
+.btn-container .btn-row-container .ac-btn-mob{
+  width:40%;
+}
+/* Del button class for DEL Button */
+.btn-container .btn-row-container .del-btn-desk{
+  width:40%;
+  display: none;
+}
+
+
+/* ////////////////////////////////////////////////////////// */
+/* Special Buttons style */
+.btn-container .btn-row-container .point-btn{
+    width: 20%;
+    min-width: 20%;
+}
+.btn-container .btn-row-container .zero-btn{
+    width: 47%;
+}
+.btn-container .btn-row-container .equal-btn{
+    width: 37%;
+    min-width: 30%;
+}
+
+
+}
