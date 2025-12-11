@@ -1,8 +1,12 @@
 /* Responsive css */
 @media only screen and (max-width: 768px) and (min-width: 320px) {
   /* NAVIGATION */
+  .nav-bar {
+    height: 40px;
+  }
   .nav-bar .Logo-text {
     font-size: 18px;
+    font-weight: 600;
   }
 
   /* Main Container */
