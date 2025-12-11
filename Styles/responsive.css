@@ -13,19 +13,24 @@
   .main-container {
     /* align-items: center; */
     background-color: transparent;
+    margin: 0;
+    padding: 0;
   }
   /* Calculator Container */
   .calc-container {
     width: 100%;
     max-width: 100%;
-    margin-top: 0;
     /* background-color: aqua; */
     box-shadow: none;
+        margin: 0;
+    padding: 0;
   }
   /* Input container */
   .input-container {
-    padding: 5% 2%;
+    padding: 0% 2%;
     /* margin-top: 5px; */
+    margin: 5px 0 0 0; 
+
   }
   .input-container .input-row-container .input-btn{
     font-size: 24px;
@@ -54,7 +59,10 @@
     margin-bottom: 10px;
     /* background-color: var(--font-dark-colour); */
 }
-.btn-container.btn-container .edit-bar button{
+.btn-container .btn-row-container{
+  margin-bottom: 2px;
+}
+.btn-container .edit-bar button{
     width: 60px;
     height: auto;
     font-size: 38px;
@@ -120,4 +128,4 @@
 }
 
 
-}
+}/* End of responsive css */
