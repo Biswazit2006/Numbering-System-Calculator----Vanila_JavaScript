@@ -181,7 +181,10 @@ padding: 0 1% 2% 1%;
     background-color: #21618c;
     transition: 0.2s;
 }
-
+.btn-container > .btn-row-container > .disabled{
+    background-color: grey;
+    transform: scale(0.95);
+}
 /* ////////////////////////////////////////////////////////// */
 /* Special Buttons style */
 .btn-container .btn-row-container .point-btn{

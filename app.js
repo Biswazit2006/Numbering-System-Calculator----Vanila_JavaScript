@@ -22,35 +22,21 @@ let activeBase = "10";
 let globalCalculation = "00"
 
 
-// ------------------------------
-// Main Action Buttons Function
-// ------------------------------
-inputDec.value = globalCalculation;
-let actionButtons = document.querySelectorAll("button");
-let actionButtonsArr = Array.from(actionButtons);
-actionButtonsArr.forEach((btn)=>{
-
-    btn.addEventListener("click",(e)=>{
-    globalCalculation = btn.innerHTML;
-    RanderInput(globalCalculation)
-    })
-
-})
-
-
-console.log(actionButtons);
-console.log(Array.from(actionButtons))
-
-
-
 // -------------------------------
-// Base Button Activation Function
+// Base Button Function
 // -------------------------------
-// Event Listeners
-baseBtnDec.addEventListener("click",()=>baseBtnActiver(10))
-baseBtnBin.addEventListener("click",()=>baseBtnActiver(2))
-baseBtnHex.addEventListener("click",()=>baseBtnActiver(16))
-baseBtnOct.addEventListener("click",()=>baseBtnActiver(8))
+baseBtnDec.addEventListener("click",()=>baseBtnEventFunc(10))
+baseBtnBin.addEventListener("click",()=>baseBtnEventFunc(2))
+baseBtnHex.addEventListener("click",()=>baseBtnEventFunc(16))
+baseBtnOct.addEventListener("click",()=>baseBtnEventFunc(8))
+
+function baseBtnEventFunc(base){
+    activeBase = base;
+    baseBtnActiver(base);
+    console.log(activeBase);
+    actionBtnDesabler(activeBase);
+   
+}
 
 // ----------------------------
 // Base Btn Activation function 
@@ -62,57 +48,101 @@ function baseBtnActiver(base){
         baseBtnBin.classList.remove("active");
         baseBtnHex.classList.remove("active");
         baseBtnOct.classList.remove("active");
+
+        // actionBtnDesabler(base);
     }else if(base===2){
         baseBtnBin.classList.add("active");
         activeBase = base;
         baseBtnDec.classList.remove("active");
         baseBtnHex.classList.remove("active");
         baseBtnOct.classList.remove("active");
+
+        // actionBtnDesabler(base);
     }else if(base===16){
         baseBtnHex.classList.add("active");
         activeBase = base;
         baseBtnDec.classList.remove("active");
         baseBtnBin.classList.remove("active");
         baseBtnOct.classList.remove("active");
+
+        // actionBtnDesabler(base);
     }else if(base === 8){
         baseBtnOct.classList.add("active");
         activeBase = base;
         baseBtnDec.classList.remove("active");
         baseBtnBin.classList.remove("active");
-        baseBtnHex.classList.remove("active");      
+        baseBtnHex.classList.remove("active");
+        
+        // actionBtnDesabler(base);
     }else{
         return base;
     }
 } 
+
+
 // --------------------------------
 // Action Button Desable Function
 // --------------------------------
 function actionBtnDesabler(base){
+    console.log("actionBtnDesabler(base):"+base)
     // Button Group need to desable
-    charBtn = document.querySelectorAll(".charBtn") //ClassName= charbtn
-    disableInBinMode = document.querySelectorAll(".disableInBinMode")   //className = disableInBinMode
+    disableInDecMode = document.querySelectorAll(".disableInDecMode"); //ClassName= disableInDecMode
+    disableInBinMode = document.querySelectorAll(".disableInBinMode"); //className = disableInBinMode
+    disableInHexMode = document.querySelectorAll(".disableInHexMode"); //className = disableInHexMode
+    disableInOctMode = document.querySelectorAll(".disableInOctMode"); //className = disableInOctMode
+    if(base === 10){
+        buttonDesable(disableInDecMode);
+    } else if (base === 2){
+        buttonDesable(disableInBinMode);
+    } else if (base === 16){
+        buttonDesableRemover(disableInHexMode);
+    }else if (base === 8){
+        buttonDesable(disableInOctMode);
+    }else{
+        return;
+    }
 
 
-    buttonDesable(charBtn);
-    // func
+    // buttonDesable(disableInDecMode);
+    // func buttonDesable
     function buttonDesable(btnNodelist){
+        buttonDesableRemover(disableInHexMode)
         Array.from(btnNodelist).forEach((btn)=>{
-            btn.classList.add("down")
+            btn.classList.add("disabled")
+            // console.log(btn);
+            
         })
     };
+    // Func buttonDesable Remover;
+    function buttonDesableRemover(btnNodelist){
+        Array.from(btnNodelist).forEach((btn)=>{
+            btn.classList.remove("disabled")
+        })
+    };
+
 }
-actionBtnDesabler(2)
-
-
-let str = "10*10";
-console.log(str)
-console.log(eval(str))
-
 // Rander Input
 function RanderInput(newNum){
     inputDec.value = newNum;
 }
+// actionBtnDesabler(activeBase);
 
-charBtn = document.querySelectorAll(".charBtn")
-console.log(charBtn)
-// charBtn.classList.add("desable")
+
+
+// ------------------------------
+// Main Action Buttons Function
+// ------------------------------
+inputDec.value = globalCalculation;
+let actionButtons = document.querySelectorAll(".actionBtn");
+console.log(actionButtons)
+let actionButtonsArr = Array.from(actionButtons);
+
+actionButtonsArr.forEach((btn)=>{
+    console.log(btn)
+    btn.addEventListener("click",(e)=>{
+    globalCalculation = btn.innerHTML;
+    RanderInput(globalCalculation)
+    console.log(activeBase)
+    })
+
+})

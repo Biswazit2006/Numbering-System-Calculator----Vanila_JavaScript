@@ -101,10 +101,6 @@
   width: 20%;
   min-width: 20%;
 }
-/* Ac button class for AC Button of desktop view*/
-.btn-container .btn-row-container .ac-btn-desk{
-  /* display: none; */
-}
 /* AC button class for AC button of mobile view  */
 .btn-container .btn-row-container .ac-btn-mob{
   width:40%;
