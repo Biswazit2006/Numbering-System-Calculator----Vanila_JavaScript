@@ -18,8 +18,11 @@ const inputOct = document.getElementById("inputOct");
 // ------------------------------
 // Global Variables
 // ------------------------------
-let activeBase = "10";
-let globalCalculation = "00"
+let activeBase = 10 ;
+let globalCalculation = "0";
+let inputBuffer = "";       // current number (base based)
+let displayExpression = ""; // UI string: 5+101
+let calcExpression = "";    // decimal only: 5+5
 
 
 // -------------------------------
@@ -33,6 +36,7 @@ baseBtnOct.addEventListener("click",()=>baseBtnEventFunc(8))
 function baseBtnEventFunc(base){
     activeBase = base;
     baseBtnActiver(base);
+    inputBuffer = "";
     console.log(activeBase);
     actionBtnDesabler(activeBase);
    
@@ -42,41 +46,24 @@ function baseBtnEventFunc(base){
 // Base Btn Activation function 
 // ----------------------------
 function baseBtnActiver(base){
+    [baseBtnDec,baseBtnBin,baseBtnHex,baseBtnOct].forEach((btn)=>{
+        btn.classList.remove("active");
+    });
     if(base=== 10){
         baseBtnDec.classList.add("active");
         activeBase = base;
-        baseBtnBin.classList.remove("active");
-        baseBtnHex.classList.remove("active");
-        baseBtnOct.classList.remove("active");
-
-        // actionBtnDesabler(base);
     }else if(base===2){
         baseBtnBin.classList.add("active");
         activeBase = base;
-        baseBtnDec.classList.remove("active");
-        baseBtnHex.classList.remove("active");
-        baseBtnOct.classList.remove("active");
-
-        // actionBtnDesabler(base);
     }else if(base===16){
         baseBtnHex.classList.add("active");
         activeBase = base;
-        baseBtnDec.classList.remove("active");
-        baseBtnBin.classList.remove("active");
-        baseBtnOct.classList.remove("active");
-
-        // actionBtnDesabler(base);
     }else if(base === 8){
         baseBtnOct.classList.add("active");
         activeBase = base;
-        baseBtnDec.classList.remove("active");
-        baseBtnBin.classList.remove("active");
-        baseBtnHex.classList.remove("active");
-        
-        // actionBtnDesabler(base);
     }else{
         return base;
-    }
+    };
 } 
 
 
@@ -121,10 +108,16 @@ function actionBtnDesabler(base){
     };
 
 }
+actionBtnDesabler(activeBase);
 // Rander Input
-function RanderInput(newNum){
-    inputDec.value = newNum;
+function RanderInput(){
+    decimalValue = Number(globalCalculation)
+    inputDec.value = decimalValue.toString(10)
+    inputBin.value = decimalValue.toString(2)
+    inputHex.value = decimalValue.toString(16).toUpperCase();
+    inputOct.value = decimalValue.toString(8);
 }
+RanderInput();
 // actionBtnDesabler(activeBase);
 
 
@@ -134,15 +127,31 @@ function RanderInput(newNum){
 // ------------------------------
 inputDec.value = globalCalculation;
 let actionButtons = document.querySelectorAll(".actionBtn");
-console.log(actionButtons)
+// console.log(actionButtons)
 let actionButtonsArr = Array.from(actionButtons);
 
 actionButtonsArr.forEach((btn)=>{
-    console.log(btn)
     btn.addEventListener("click",(e)=>{
-    globalCalculation = btn.innerHTML;
-    RanderInput(globalCalculation)
-    console.log(activeBase)
+    if(btn.classList.contains("disabled")){
+    return;
+    }else{
+    decimalActionBtnFunc(btn)
+    // console.log(activeBase)
+    }
     })
 
-})
+});
+
+// Decimal Btn Fucn
+function decimalActionBtnFunc(btn){
+    if(btn.innerHTML === "="){
+        eval(globalCalculation);
+    }else if(btn.innerHTML === "AC"){
+        console.log("AC")
+    }else if(btn.innerHTML === "DEL"){
+        console.log("DEL")
+    }
+    globalCalculation += btn.innerHTML;
+    RanderInput()
+     console.log(btn.classList.value)
+}
