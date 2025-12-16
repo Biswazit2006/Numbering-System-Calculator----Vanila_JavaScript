@@ -59,17 +59,14 @@
     gap: 5px;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     /* background-color: var(--font-dark-colour); */
 }
-.btn-container .btn-row-container{
-  margin-bottom: 2px;
-}
 .btn-container .edit-bar button{
-    width: 60px;
+    width: 100%;
     height: auto;
     font-size: 38px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border: none;
     border-radius: 7px;
     background-color: var(--primary-color);
@@ -82,14 +79,14 @@
     width: 100%;
     height: auto;
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .btn-container .btn-row-container button{
     font-size: 42px;
     font-weight: 600;
-    padding: 5px 10px; 
+    padding: 10px 12px; 
     width: 100%;
     border: none;
     cursor: pointer;
@@ -119,7 +116,7 @@
     min-width: 20%;
 }
 .btn-container .btn-row-container .zero-btn{
-    width: 47%;
+    width: 43%;
 }
 .btn-container .btn-row-container .equal-btn{
     width: 37%;
