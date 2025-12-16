@@ -50,7 +50,7 @@ function setActiveBaseBtn(base) {
   if (base === 16) baseBtnHex.classList.add("active");
   if (base === 8) baseBtnOct.classList.add("active");
 }
-
+actionBtnDesabler(activeBase)
 // -------------------------
 // ACTION BUTTONS
 // -------------------------
