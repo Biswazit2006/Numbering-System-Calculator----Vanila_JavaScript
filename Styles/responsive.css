@@ -19,6 +19,13 @@
     margin: 0;
     padding: 0;
   }
+  .main-container p{
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.main-container p a{
+    font-weight: 400;
+}
   /* Calculator Container */
   .calc-container {
     width: 100%;
@@ -31,7 +38,6 @@
   /* Input container */
   .input-container {
     padding: 0% 2%;
-    /* margin-top: 5px; */
     margin: 5px 0 0 0; 
 
   }
