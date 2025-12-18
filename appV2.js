@@ -1,7 +1,6 @@
 // =======================================================
 // DOM NODES
 // =======================================================
-
 // Buttons node
 const baseBtnDec = document.getElementById("baseBtnDec");
 const baseBtnBin = document.getElementById("baseBtnBin");
@@ -14,24 +13,19 @@ const inputBin = document.getElementById("inputBin");
 const inputHex = document.getElementById("inputHex");
 const inputOct = document.getElementById("inputOct");
 
+// Others
+const acBtnMoble = document.getElementById("acBtnMoble")
+
 
 //=====================================================
 // Global Variables
 // ====================================================
-let activeBase = 2 ;
+let activeBase = 10;
 let globalDecCalculation = "";
 let globalDecimalStr ="";
 let currentExpresion = "";
 let prevNum = "";
-
 let currentCalculation = "";
-
-let globalBinCalculation ="";
-
-
-let inputBuffer = "";       // current number (base based)
-let displayExpression = ""; // UI string: 5+101
-let calcExpression = "";    // decimal only: 5+5
 
 
 // =====================================================
@@ -47,8 +41,7 @@ function baseBtnEventFunc(base){
     baseBtnActiver(base);
     inputBuffer = "";
     console.log(activeBase);
-    actionBtnDesabler(activeBase);
-   
+    actionBtnDesabler(activeBase);  
 }
 
 // ==================================================
@@ -118,22 +111,23 @@ function actionBtnDesabler(base){
 
 }
 actionBtnDesabler(activeBase);
-// Rander Input
-function RanderInput(){
 
+
+// ==================================================
+// Rander Input Function
+//===================================================
+function RanderInput(){
     if(globalDecCalculation == ""){
         decimalValue = 0;
     }else{
     decimalValue = Number(parseFloat(globalDecCalculation))
     };
-
     inputDec.value = decimalValue.toString(10);
     inputBin.value = decimalValue.toString(2);
     inputHex.value = decimalValue.toString(16).toUpperCase();
     inputOct.value = decimalValue.toString(8);
 }
 RanderInput();
-// actionBtnDesabler(activeBase);
 
 
 
@@ -142,7 +136,6 @@ RanderInput();
 // ================================================
 inputDec.value = globalDecCalculation;
 let actionButtons = document.querySelectorAll(".actionBtn");
-// console.log(actionButtons)
 let actionButtonsArr = Array.from(actionButtons);
 
 actionButtonsArr.forEach((btn)=>{
@@ -150,99 +143,39 @@ actionButtonsArr.forEach((btn)=>{
     if(btn.classList.contains("disabled")){
     return;
     }else{
-         actionBtnHelpFunc(btn)
-        if(activeBase == 10){
-            // decimalActionBtnFunc(btn)
-        }else if(activeBase == 2){
-            // binaryActionBtnFunc(btn);
-        }else{
-            console.log("Problem in main Action func")
-        }
-    
-    // console.log(activeBase)
+         actionBtnFunc(btn)
     }
     })
-
 });
-
-// Decimal Btn Fucn
-function decimalActionBtnFunc(btn){
-    if(btn.innerHTML === "="){
+// ----------------------------------------------------
+// Action Btn Function
+// ----------------------------------------------------
+function actionBtnFunc(btn){
+       if(btn.innerHTML === "="){
+        globalDecimalStr += globalDecCalculation;
         equalToBtnFunc()
     }else if(btn.innerHTML == "AC"){
         globalDecCalculation = "";
         globalDecimalStr = "";
+        currentCalculation = "";
+        prevNum = "";
         RanderInput()
         console.log("AC")
     }else if(btn.innerHTML == "DEL"){
-        console.log("DEL")
-    }else if(btn.classList.contains("expretionBtn")){
-        currentExpresion = "";
-        currentExpresion = btn.innerHTML;
-        equalToBtnFunc()
-
-        // globalDecimalStr ="";
-       prevNum = globalDecCalculation;
-
-    //    globalDecimalStr += globalDecCalculation;
-       globalDecimalStr += btn.innerHTML;
-
-       globalDecCalculation = "";
-       
-       console.log(prevNum)
-       console.log(globalDecCalculation)
-       console.log(globalDecimalStr)
-
-       RanderInput();
-
-    }else{
-    globalDecCalculation += btn.innerHTML;
-    globalDecimalStr += btn.innerHTML;
-    RanderInput()
-
-     console.log(btn.classList.value)
-    //  console.log(typeof btn.innerHTML)
-    console.log(prevNum)
-     console.log(globalDecCalculation)
-     console.log(globalDecimalStr)
-
-    }
-
-}
-// Bin btn func
-function binaryActionBtnFunc(btn){
-    if(btn.innerHTML === "="){
-        equalToBtnFunc()
-    }else if(btn.innerHTML == "AC"){
-        globalDecCalculation = "";
-        globalDecimalStr = "";
-        RanderInput()
-        console.log("AC")
-    }else if(btn.innerHTML == "DEL"){
+        console.log(currentCalculation)
+        currentCalculation = currentCalculation.slice(0, -1);
+        globalDecCalculation = currentCalculation;
+        RanderInput();
+        console.log(currentCalculation) 
         console.log("DEL")
     }else if(btn.classList.contains("expretionBtn")){
         console.log("Expresssssssssssssssssssssssssssssssssssss")
         currentExpresion = "";
         currentExpresion = btn.innerHTML;
         // equalToBtnFunc()
-
-        // globalDecimalStr ="";
        prevNum = globalDecCalculation;
-
-              if(globalDecimalStr.includes("*")){
-       console.log(eval(globalDecimalStr))
-       }
-       
        globalDecimalStr += globalDecCalculation;
        globalDecimalStr += btn.innerHTML;
-
-       
-       
-       console.log(prevNum)
-       console.log(globalDecCalculation)
-       console.log(globalDecimalStr)
-
-
        globalDecCalculation = "";
        currentCalculation = "";
        RanderInput();
@@ -250,29 +183,26 @@ function binaryActionBtnFunc(btn){
     }else{
     currentCalculation += btn.innerHTML;
 
-    globalDecCalculation = convertToDecimal(currentCalculation,2); 
-    RanderInput()
-
-    console.log("Buttons")
+    globalDecCalculation = convertToDecimal(currentCalculation,activeBase); 
     console.log(currentCalculation)
-    console.log(globalDecCalculation)
-    }
-
+    RanderInput()
+    } 
 }
 
 // Equal Btn calcualtion 
 function equalToBtnFunc(){
-    console.log("Equal Btn clicked")
-    // globalDecimalStr += globalDecCalculation;
     let equalTo = eval(globalDecimalStr);
     globalDecCalculation = equalTo;
     RanderInput(equalTo);
-
     console.log(prevNum)
     console.log(globalDecimalStr)
     console.log(globalDecCalculation)
-    // globalDecimalStr ="";
+    globalDecimalStr ="";
+    currentExpresion = "";
 }
+
+
+
 
 
 // ===========================================
@@ -293,52 +223,16 @@ function convertToDecimal(numStr, base) {
   }
   return decimal;
 }
-// console.log(convertToDecimal("1100",2))
 
-// action
-function actionBtnHelpFunc(btn){
-       if(btn.innerHTML === "="){
-        globalDecimalStr += globalDecCalculation;
-        equalToBtnFunc()
-    }else if(btn.innerHTML == "AC"){
-        globalDecCalculation = "";
-        globalDecimalStr = "";
-        RanderInput()
-        console.log("AC")
-    }else if(btn.innerHTML == "DEL"){
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Others Code
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Mobile view Del Button
+acBtnMoble.addEventListener("click",()=>{
+        console.log(currentCalculation)
+        currentCalculation = currentCalculation.slice(0, -1);
+        globalDecCalculation = currentCalculation;
+        RanderInput();
+        console.log(currentCalculation) 
         console.log("DEL")
-    }else if(btn.classList.contains("expretionBtn")){
-        console.log("Expresssssssssssssssssssssssssssssssssssss")
-        currentExpresion = "";
-        currentExpresion = btn.innerHTML;
-        // equalToBtnFunc()
-
-        // globalDecimalStr ="";
-       prevNum = globalDecCalculation;
-       
-       globalDecimalStr += globalDecCalculation;
-       globalDecimalStr += btn.innerHTML;
-
-       
-       
-       console.log(prevNum)
-       console.log(globalDecCalculation)
-       console.log(globalDecimalStr)
-
-
-       globalDecCalculation = "";
-       currentCalculation = "";
-       RanderInput();
-    
-    }else{
-    currentCalculation += btn.innerHTML;
-
-    globalDecCalculation = convertToDecimal(currentCalculation,activeBase); 
-    RanderInput()
-
-    console.log("Buttons")
-    console.log(currentCalculation)
-    console.log(globalDecCalculation)
-    console.log(globalDecimalStr)
-    } 
-}
+})

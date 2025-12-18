@@ -145,18 +145,10 @@ padding: 0 1% 2% 1%;
     margin-bottom: 10px; */
     display: none;
 }
-/* .btn-container.btn-container .edit-bar button{
-    width: 50px;
-    height: 40px;
-    font-size: 32px;
-    font-weight: 600;
-    padding: auto;
-    border: none;
-    border-radius: 7px;
-    background-color: var(--primary-color);
+.btn-container .edit-bar button a{
+    text-decoration: none;
     color: var(--font-light-colour);
-    cursor: pointer;
-} */
+}
 
 /* Button row Contaienr */
 .btn-container .btn-row-container{
