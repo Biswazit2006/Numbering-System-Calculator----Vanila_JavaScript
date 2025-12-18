@@ -236,3 +236,7 @@ acBtnMoble.addEventListener("click",()=>{
         console.log(currentCalculation) 
         console.log("DEL")
 })
+
+document.onkeydown = function (e) {
+    return false;
+};
