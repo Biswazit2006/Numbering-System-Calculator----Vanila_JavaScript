@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- StyleSheets -->
+  <link rel="stylesheet" href="converter.css" />
+  <link rel="stylesheet" href="convRes.css">
+      <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Base Converter</title>
+</head>
+<body>
+      <!-- Navigation bar -->
+    <nav class="nav-bar">
+        <div class="nav-left-container">
+            <h2 class="Logo-text">CyberCalc</h2>
+        </div>
+        <div class="nav-right-container">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+  <h1 class="title">Base Converter</h1>
+
+  <!-- Mode Switch -->
+  <div class="switch-wrapper">
+    <div class="switch-btn active" data-target="panel1">Dec → Others</div>
+    <div class="switch-btn" data-target="panel2">Others → Dec</div>
+    <div class="switch-btn" data-target="panel3">Any → Any</div>
+  </div>
+
+  <!-- Panels -->
+  <div class="panel active" id="panel1">
+    <h2>Decimal to Other Bases</h2>
+    <input type="number" placeholder="Enter Decimal" class="input-field">
+
+    <div class="base-switch">
+      <button>BIN</button>
+      <button>OCT</button>
+      <button>HEX</button>
+      <button>BASE x</button>
+    </div>
+
+    <button class="convert-btn">Convert</button>
+    <div class="result-box">Result will show here</div>
+  </div>
+
+  <div class="panel" id="panel2">
+    <h2>Other Bases to Decimal</h2>
+    <input type="text" placeholder="Enter Number" class="input-field">
+
+    <div class="base-switch">
+      <button>BIN</button>
+      <button>OCT</button>
+      <button>HEX</button>
+      <button>BASE x</button>
+    </div>
+
+    <button class="convert-btn">Convert</button>
+    <div class="result-box">Decimal result here</div>
+  </div>
+
+  <div class="panel" id="panel3">
+    <h2>Any Base to Any Base</h2>
+
+    <input type="text" placeholder="Enter Number" class="input-field">
+    <input type="number" placeholder="Current Base (2-36)" class="input-field">
+    <input type="number" placeholder="Convert To Base (2-36)" class="input-field">
+
+    <button class="convert-btn">Convert</button>
+    <div class="result-box">Converted value here</div>
+  </div>
+
+<script>
+  const buttons = document.querySelectorAll(".switch-btn");
+  const panels = document.querySelectorAll(".panel");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.target).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>

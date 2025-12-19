@@ -1,0 +1,171 @@
+/* =========================================== */
+/* Variables */
+/* =========================================== */
+:root {
+  /* Colour */
+  --primary-color: #3498db;
+  --secondary-color: #ecf0f1;
+  --font-light-colour: #ffffff;
+  --font-dark-colour: #2c3e50;
+  --white-colour: #ffffff;
+  --black-colour: #000000;
+
+  --desable-colour:gray;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background: #f7fbff;
+  padding: 30px 10px;
+  color: #222;
+}
+
+/* ================================================= */
+/* NAVIGATION */
+/* ================================================= */
+.nav-bar {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+.nav-bar .nav-left-container{
+    width: 60%;
+    display: flex;
+    justify-content: end;
+}
+.nav-bar .Logo-text {
+  color: var(--font-light-colour);
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.nav-bar .nav-right-container{
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+}
+.nav-bar .nav-right-container i{
+    color: var(--font-light-colour);
+    font-size: 32px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Switch Tabs */
+.switch-wrapper {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background: #e3eeff;
+  border-radius: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-btn {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.switch-btn.active {
+  background: #007bff;
+  color: white;
+  opacity: 1;
+}
+
+/* Panels */
+.panel {
+  display: none;
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel h2 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.base-switch {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.base-switch button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 4px;
+  border-radius: 8px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.base-switch button:hover {
+  background: #bbb;
+}
+
+/* Convert Button */
+.convert-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Result Box */
+.result-box {
+  padding: 15px;
+  background: #eef4ff;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px dashed #007bff;
+}
