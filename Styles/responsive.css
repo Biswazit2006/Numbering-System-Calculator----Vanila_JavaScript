@@ -1,133 +1,332 @@
-/* Responsive css */
-@media only screen and (max-width: 768px) and (min-width: 320px) {
-  /* NAVIGATION */
-  .nav-bar {
-    height: 40px;
+/* =============================================================================================== */
+/* -----------------------------------------Responsive css v2.2----------------------------------------- */
+/* ================================================================================================ */
+/* wider screen mobile */
+@media only screen and (max-width: 768px) and (min-width: 390px) {
+  body {
+    display: flex;
   }
-  .nav-bar .Logo-text {
+  /* ===================================== */
+  /* NAVIGATION */
+  /* ===================================== */
+  .nav-bar {
+    width: 100%;
+    height: 35px;
+    padding: 2px 2px;
+  }
+  .nav-bar .nav-left-container {
+    width: 65%;
+  }
+  .nav-bar .nav-left-container .Logo-text {
     font-size: 18px;
     font-weight: 600;
   }
-
+  .nav-bar .nav-right-container {
+    width: 35%;
+    padding-right: 5px;
+  }
+  .nav-bar .nav-right-container i {
+    font-size: 20px;
+  }
+  /* ========================================= */
   /* Main Container */
+  /* ========================================= */
   .main-container {
     width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
   }
-  .main-container p{
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-.main-container p a{
-    font-weight: 400;
-}
+  /* ================================================== */
   /* Calculator Container */
+  /* ==================================================== */
   .calc-container {
     width: 100%;
     max-width: 100%;
-    /* background-color: aqua; */
     box-shadow: none;
-        margin: 0;
+    margin: 0;
     padding: 0;
   }
-  /* Input container */
+  /* ================================================== */
+  /* Input Container */
+  /* ================================================== */
   .input-container {
     padding: 0% 2%;
-    margin: 5px 0 0 0; 
-
+    margin: 5px 0 0 0;
   }
-  .input-container .input-row-container .input-btn{
-    font-size: 24px;
-    padding: 10px;
+  .input-container .input-row-container {
+    margin-bottom: 5px;
+    /* gap: 5px; */
   }
-
-
-  /* //////////////////////////////////// */
+  .input-container .input-row-container .input-btn {
+    font-size: 25px;
+    padding: 10px 0;
+  }
+  .input-container .input-row-container .input-field {
+    width: 80%;
+    font-size: 58px;
+    padding: 0px 5px;
+  }
+  /* ====================================================== */
   /* Buton Container  */
-.btn-container{
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 1% 2%;
+  /* ====================================================== */
+  .btn-container {
     display: flex;
     flex-direction: column;
-}
-
-.btn-container .edit-bar{
+    padding: 0 1% 0 1%;
+  }
+  /* Edit bar */
+  .btn-container .edit-bar {
+    display: flex;
     width: 100%;
     height: auto;
-    display: flex;
-    gap: 5px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 5px;
-    /* background-color: var(--font-dark-colour); */
-}
-.btn-container .edit-bar button{
-    width: 100%;
+    gap: 1%;
+    /* background-color: aquamarine; */
+  }
+  .btn-container .edit-bar button {
+    width: auto;
+    width: 18%;
+    min-width: 50px;
     height: auto;
-    font-size: 38px;
-    padding: 10px 10px;
+    font-size: 32px;
+    padding: 10px 8px;
     border: none;
-    border-radius: 7px;
+    border-radius: 10px;
     background-color: var(--primary-color);
     color: var(--font-light-colour);
-}
+  }
 
-
-/* Button row Contaienr */
-.btn-container .btn-row-container{
+  /* Button row Contaienr */
+  .btn-container .btn-row-container {
     width: 100%;
     height: auto;
     display: flex;
     gap: 5px;
     justify-content: space-between;
-    margin-bottom: 5px;
-}
-.btn-container .btn-row-container button{
+  }
+  /* Button row Container Btn */
+  .btn-container .btn-row-container > button {
     font-size: 42px;
     font-weight: 600;
-    padding: 10px 12px; 
-    width: 100%;
+    padding: 10px 8px;
+    /* padding: 0; */
+    margin: 0;
     border: none;
     cursor: pointer;
     background-color: var(--primary-color);
     color: var(--font-light-colour);
     border-radius: 10px;
-}
-.btn-container .btn-row-container .number-btn{
-  width: 20%;
-  min-width: 20%;
-}
-/* AC button class for AC button of mobile view  */
-.btn-container .btn-row-container .ac-btn-mob{
-  width:40%;
-}
-/* Del button class for DEL Button */
-.btn-container .btn-row-container .del-btn-desk{
-  width:40%;
-  display: none;
+  }
+  /* Btn row container let/right */
+  .btn-container .btn-row-container .button-row-left {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .btn-container .btn-row-container .btn-row-right {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /* btn */
+  .btn-container .btn-row-container .button-row-left > button {
+    width: 32%;
+    font-size: 42px;
+    font-weight: 600;
+    padding: 15px 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+  }
+  .btn-container .btn-row-container .btn-row-right > button {
+    width: 48%;
+    font-size: 32px;
+    font-weight: 600;
+    padding: 12px 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+  }
+    .btn-container .btn-row-container:last-child >.button-row-left > button:first-child {
+    width: 32%;
+  }
+  .btn-container.btn-row-container:last-child.button-row-left > button:last-child {
+    width: 66%;
+  }
 }
 
 
-/* ////////////////////////////////////////////////////////// */
-/* Special Buttons style */
-.btn-container .btn-row-container .point-btn{
-    width: 20%;
-    min-width: 20%;
-}
-.btn-container .btn-row-container .zero-btn{
-    width: 43%;
-}
-.btn-container .btn-row-container .equal-btn{
-    width: 37%;
-    min-width: 30%;
-}
+/* /////////////////////////////////////////////////////////////////////// */
 
+/* ======================================================================= */
+/* naro screen mobile */
+/* ===================================================================== */
+@media only screen and (max-width: 390px) and (min-width: 318px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* ===================================== */
+  /* NAVIGATION */
+  /* ===================================== */
+  .nav-bar {
+    width: 100%;
+    height: 40px;
+    padding: 2px 2px;
+  }
+  .nav-bar .nav-left-container {
+    width: 65%;
+  }
+  .nav-bar .nav-left-container .Logo-text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .nav-bar .nav-right-container {
+    width: 35%;
+    padding-right: 5px;
+  }
+  .nav-bar .nav-right-container i {
+    font-size: 20px;
+  }
+  /* ========================================= */
+  /* Main Container */
+  /* ========================================= */
+  .main-container {
+    width: 100%;
+    height: 90vh;
+    margin: 10px 0;
+  }
+  /* ================================================== */
+  /* Calculator Container */
+  /* ==================================================== */
+  .calc-container {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* ================================================== */
+  /* Input Container */
+  /* ================================================== */
+  .input-container {
+    padding: 0% 2%;
+    margin: 5px 0 0 0;
+  }
+  .input-container .input-row-container {
+    margin-bottom: 5px;
+    /* gap: 5px; */
+  }
+  .input-container .input-row-container .input-btn {
+    font-size: 22px;
+    padding: 0;
+  }
+  .input-container .input-row-container .input-field {
+    width: 80%;
+    font-size: 48px;
+    padding: 0px 5px;
+  }
+  /* ====================================================== */
+  /* Buton Container  */
+  /* ====================================================== */
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1% 0 1%;
+  }
+  /* Edit bar */
+  .btn-container .edit-bar {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    gap: 1%;
+  }
+  .btn-container .edit-bar button {
+    width: auto;
+    width: 18%;
+    min-width: 50px;
+    height: auto;
+    font-size: 28px;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+  }
 
-}/* End of responsive css */
+  /* Button row Contaienr */
+  .btn-container .btn-row-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 1%;
+    justify-content: space-between;
+  }
+  /* Button row Container Btn */
+  .btn-container .btn-row-container > button {
+    font-size: 38px;
+    font-weight: 600;
+    padding: 5px 8px;
+    /* padding: 0; */
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+  }
+  /* Btn row container let/right */
+  .btn-container .btn-row-container .button-row-left {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .btn-container .btn-row-container .btn-row-right {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /* btn */
+  .btn-container .btn-row-container .button-row-left > button {
+    width: 32%;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 12px 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+  }
+  .btn-container .btn-row-container .btn-row-right > button {
+    width: 48%;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 12px 0;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--font-light-colour);
+    border-radius: 10px;
+  }
+  .btn-container .btn-row-container:last-child >.button-row-left > button:first-child {
+    width: 32%;
+  }
+  .btn-container.btn-row-container:last-child.button-row-left > button:last-child {
+    width: 66%;
+  }
+}
