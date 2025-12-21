@@ -40,7 +40,6 @@ function baseBtnEventFunc(base){
     activeBase = base;
     baseBtnActiver(base);
     inputBuffer = "";
-    console.log(activeBase);
     actionBtnDesabler(activeBase);  
 }
 
@@ -73,7 +72,6 @@ function baseBtnActiver(base){
 // Action Button Desable Function
 // ==================================================
 function actionBtnDesabler(base){
-    console.log("actionBtnDesabler(base):"+base)
     // Button Group need to desable
     disableInDecMode = document.querySelectorAll(".disableInDecMode"); //ClassName= disableInDecMode
     disableInBinMode = document.querySelectorAll(".disableInBinMode"); //className = disableInBinMode
@@ -90,16 +88,11 @@ function actionBtnDesabler(base){
     }else{
         return;
     }
-
-
-    // buttonDesable(disableInDecMode);
     // func buttonDesable
     function buttonDesable(btnNodelist){
         buttonDesableRemover(disableInHexMode)
         Array.from(btnNodelist).forEach((btn)=>{
             btn.classList.add("disabled")
-            // console.log(btn);
-            
         })
     };
     // Func buttonDesable Remover;
@@ -159,17 +152,13 @@ function actionBtnFunc(btn){
         globalDecimalStr = "";
         currentCalculation = "";
         prevNum = "";
+        currentExpresion ="";
         RanderInput()
-        console.log("AC")
     }else if(btn.innerHTML == "DEL"){
-        console.log(currentCalculation)
         currentCalculation = currentCalculation.slice(0, -1);
         globalDecCalculation = currentCalculation;
         RanderInput();
-        console.log(currentCalculation) 
-        console.log("DEL")
     }else if(btn.classList.contains("expretionBtn")){
-        console.log("Expresssssssssssssssssssssssssssssssssssss")
         currentExpresion = "";
         currentExpresion = btn.innerHTML;
         // equalToBtnFunc()
@@ -182,9 +171,7 @@ function actionBtnFunc(btn){
     
     }else{
     currentCalculation += btn.innerHTML;
-
     globalDecCalculation = convertToDecimal(currentCalculation,activeBase); 
-    console.log(currentCalculation)
     RanderInput()
     } 
 }
@@ -194,9 +181,6 @@ function equalToBtnFunc(){
     let equalTo = eval(globalDecimalStr);
     globalDecCalculation = equalTo;
     RanderInput(equalTo);
-    console.log(prevNum)
-    console.log(globalDecimalStr)
-    console.log(globalDecCalculation)
     globalDecimalStr ="";
     currentExpresion = "";
 }
@@ -229,12 +213,9 @@ function convertToDecimal(numStr, base) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Mobile view Del Button
 acBtnMoble.addEventListener("click",()=>{
-        console.log(currentCalculation)
         currentCalculation = currentCalculation.slice(0, -1);
         globalDecCalculation = currentCalculation;
         RanderInput();
-        console.log(currentCalculation) 
-        console.log("DEL")
 })
 
 document.onkeydown = function (e) {

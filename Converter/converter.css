@@ -3,7 +3,10 @@
 /* =========================================== */
 :root {
   /* Colour */
-  --primary-color: #3498db;
+  --primary-color: #007bff; 
+  --primary-light-color:#686de0 ;
+  --primary-v3 :rgb(173, 203, 248);
+
   --secondary-color: #ecf0f1;
   --font-light-colour: #ffffff;
   --font-dark-colour: #2c3e50;
@@ -18,13 +21,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: #f7fbff;
-  padding: 30px 10px;
-  color: #222;
+padding: 0;
+margin: 0;
 }
 
 /* ================================================= */
@@ -67,13 +69,27 @@ body {
   margin-bottom: 20px;
   font-size: 2rem;
 }
+/* ================================================= */
+/* Main Conatiner */
+/* ================================================= */
+.main-container{
+  background: var(--secondary-color);
+  padding: 30px 10px;
+  color: var(--font-dark-colour);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+/* ================================================= */
 /* Switch Tabs */
+/* ================================================= */
 .switch-wrapper {
   width: 90%;
   max-width: 600px;
   margin: auto;
-  background: #e3eeff;
+  background: var(--primary-v3);
   border-radius: 30px;
   padding: 5px;
   display: flex;
@@ -92,36 +108,60 @@ body {
 }
 
 .switch-btn.active {
-  background: #007bff;
-  color: white;
+  background: var(--primary-color);
+  color: var(--font-light-colour);
   opacity: 1;
 }
-
+/* ================================================= */
 /* Panels */
+/* ================================================= */
 .panel {
-  display: none;
-  max-width: 500px;
-  margin: 30px auto;
-  background: white;
+  width: 80%;
+  /* max-width: 720px; */
+ display: none;
+ flex-direction: column;
+ /* background-color: var(--white-colour); */
+ justify-content: center;
+ align-items: center;
+ padding: 2% 3%;
+ margin-top: 50px;
+  transition: 0.01s;
+}
+.panel.active {
+  display: flex;
+}
+
+/* ================================================= */
+/* normal-result*/
+/* ================================================= */
+.panel .normal-result{
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white-colour);
   padding: 25px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
-
-.panel.active {
+.panel .normal-resul{
   display: block;
 }
 
-.panel h2 {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
 
+.panel  h2 {
+  margin-bottom: 10px;
+  font-size: 3rem;
+}
+/* --------------------------------------------------------- */
 /* Inputs */
+/* --------------------------------------------------------- */
 .input-field {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 600;
+  padding: 5px 10px;
+  margin-bottom: 25px;
   border-radius: 8px;
   border: 1px solid #aaa;
 }
@@ -134,38 +174,50 @@ body {
 
 .base-switch button {
   flex: 1;
+  font-size: 28px;
   padding: 10px;
   margin: 0 4px;
   border-radius: 8px;
   border: none;
-  background: #ddd;
+  background: var(--primary-color);
+  color: var(--font-light-colour);
   cursor: pointer;
   font-weight: 600;
   transition: 0.2s;
 }
 
 .base-switch button:hover {
-  background: #bbb;
+  background: var(--primary-light-color);
 }
-
+.base-switch button .active {
+  background: var(--primary-light-color);
+}
+/* --------------------------------------------------------- */
 /* Convert Button */
+/* --------------------------------------------------------- */
 .convert-btn {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
   border: none;
-  background: #007bff;
-  color: white;
+  background: var(--primary-color);
+  color: var(--font-light-colour);
+  font-size: 28px;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 10px;
 }
-
+.convert-btn:hover{
+  background-color: var(--primary-light-color);
+}
+/* --------------------------------------------------------- */
 /* Result Box */
+/* --------------------------------------------------------- */
 .result-box {
+  font-size: 28px;
   padding: 15px;
-  background: #eef4ff;
+  background: var(--secondary-color);
   border-radius: 8px;
   text-align: center;
-  border: 1px dashed #007bff;
+  border: 1px dashed var(--primary-color);
 }
