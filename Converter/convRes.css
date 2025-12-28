@@ -38,6 +38,9 @@
   align-items: start;
   background-color: var(--font-light-colour);
 }
+.nav-bar .hamburg-menu li{
+  margin-bottom: 8px;
+}
 /* ================================================= */
 /* Main Conatiner */
 /* ================================================= */

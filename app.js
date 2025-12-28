@@ -16,6 +16,26 @@ const inputOct = document.getElementById("inputOct");
 // Others
 const acBtnMoble = document.getElementById("acBtnMoble")
 
+//=====================================================
+// Navbar Hamburg Function
+// ====================================================
+const hamburgerBtn = document.getElementById("hamburg")
+const crossBtn = document.getElementById("cross")
+const menu = document.querySelector(".hamburg-menu");
+
+hamburgerBtn.addEventListener("click",()=>{
+    menu.style.display = "flex";
+    crossBtn.style.display = "flex";
+    hamburgerBtn.style.display = "none";
+});
+crossBtn.addEventListener("click",()=>{
+    menu.style.display = "none";
+    crossBtn.style.display = "none";
+    hamburgerBtn.style.display = "flex";
+});
+
+
+
 
 //=====================================================
 // Global Variables

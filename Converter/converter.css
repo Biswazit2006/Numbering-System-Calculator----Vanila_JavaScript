@@ -275,6 +275,7 @@ background-color: var(--secondary-color);
 /* Result Box */
 /* --------------------------------------------------------- */
 .result-box {
+  display: none;
   font-size: 28px;
   padding: 15px;
   background: var(--secondary-color);

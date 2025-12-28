@@ -32,16 +32,16 @@
     </div>
     <div class="hamburg-menu">
       <ul>
+        <li><a href="../index.html"><i class="fa-solid fa-calculator"></i><p>Calculator</p></a></li>
         <li><a href=""><i class="fa-solid fa-gear"></i>
             <p>Setting</p>
           </a></li>
         <li><a href=""><i class="fa-solid fa-share-nodes"></i>
             <p>Share</p>
           </a></li>
-        <li><a href="./Converter/converter.html"><i
-              class="fa-solid fa-arrow-right-arrow-left"></i><span>Converter</span></a></li>
         <li><a href="https://www.facebook.com/biswazit2006"><i
-              class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
+              class="fa-brands fa-facebook"></i><p>Facebook</p></a></li>
+        <li><a href="https://github.com/Biswazit2006"><i class="fa-brands fa-github"></i><p>Github</p></a></li>
       </ul>
     </div>
   </nav>
@@ -59,15 +59,15 @@
     <div class="panel active" id="panel1">
       <div class="normal-result">
         <h2>Decimal to Any Base</h2>
-        <input type="number" placeholder="Enter Decimal" class="input-field">
+        <input type="number" placeholder="Enter Decimal" class="input-field" id="inputOne">
         <div class="base-switch">
           <button class="baseBtn active">BIN</button>
           <button class="baseBtn">OCT</button>
           <button class="baseBtn">HEX</button>
-          <button class="baseBtn">Clear</button>
+          <button class="clearBtn">Clear</button>
         </div>
-        <button class="convert-btn">Convert</button>
-        <div class="result-box">Result will show here</div>
+        <button class="convert-btn" id="convertBtnOne">Convert</button>
+        <div class="result-box" id="resultOne">Result will show here</div>
       </div>
     </div>
     <!-- Panels-12 -->
@@ -75,15 +75,15 @@
       <!-- normal result -->
       <div class="normal-result">
         <h2>Any Base to Decimal</h2>
-        <input type="text" placeholder="Enter Number" class="input-field">
+        <input type="text" placeholder="Enter Number" class="input-field" id="inputTwo">
         <div class="base-switch">
           <button class="baseBtn">BIN</button>
           <button class="baseBtn">OCT</button>
           <button class="baseBtn">HEX</button>
-          <button class="baseBtn">Clear </button>
+          <button class="clearBtn">Clear </button>
         </div>
-        <button class="convert-btn">Convert</button>
-        <div class="result-box">Decimal result here</div>
+        <button class="convert-btn" id="convertBtnTwo">Convert</button>
+        <div class="result-box" id="resultTwo">Decimal result here</div>
       </div>
       <!-- Math-result -->
       <div class="math-result">
@@ -95,11 +95,11 @@
       <!-- normal result -->
       <div class="normal-result">
         <h2>Any Base to Any Base</h2>
-        <input type="text" placeholder="Enter Number" class="input-field">
-        <input type="number" placeholder="Current Base (2-36)" class="input-field">
-        <input type="number" placeholder="Convert To Base (2-36)" class="input-field">
-        <button class="convert-btn">Convert</button>
-        <div class="result-box">Converted value here</div>
+        <input type="text" placeholder="Enter Number" class="input-field" id="inputThree"/>
+        <input type="number" placeholder="Current Base (2-36)" class="input-field" id="inputThebase"/>
+        <input type="number" placeholder="Convert To Base (2-36)" class="input-field" id="inputTobase"/>
+        <button class="convert-btn" id="convertBtnThree">Convert</button>
+        <div class="result-box" id="resultThree">Converted value here</div>
       </div>
       <!-- Math-result -->
       <div class="math-result">
