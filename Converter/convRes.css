@@ -12,15 +12,14 @@
   /* ===================================== */
   .nav-bar {
     width: 100%;
-    height: 30px;
+    height: 50px;
     padding: 2px 2px;
-    margin-bottom: 20px;
   }
   .nav-bar .nav-left-container {
     width: 65%;
   }
   .nav-bar .nav-left-container .Logo-text {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
   }
   .nav-bar .nav-right-container {
@@ -28,6 +27,102 @@
     padding-right: 5px;
   }
   .nav-bar .nav-right-container i {
-    font-size: 20px;
+    font-size: 26px;
   }
+    /* Hamburg menu */
+.nav-bar .hamburg-menu{
+  width: 100%;
+  height: 50%;
+  top: 50px;
+  padding: 10px;
+  align-items: start;
+  background-color: var(--font-light-colour);
+}
+/* ================================================= */
+/* Main Conatiner */
+/* ================================================= */
+.main-container{
+  padding: 0;
+  padding-top: 10px;
+}
+.main-container .title{
+  font-size: 20px;
+}
+/* ================================================= */
+/* Switch Tabs */
+/* ================================================= */
+.switch-wrapper {
+  width: 95%;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px 10px;
+}
+
+.switch-btn {
+  padding: 5px 2px ;
+  border-radius: 5px;
+}
+/* ================================================= */
+/* Panels */
+/* ================================================= */
+.panel {
+  width: 95%;
+ padding: 0;
+ margin-top: 0px;
+}
+/* ================================================= */
+/* normal-result*/
+/* ================================================= */
+.panel .normal-result{
+  width: 100%;;
+  padding: 12px;
+  border-radius: 10px;
+}
+.panel .normal-resul{
+  display: block;
+}
+
+
+.panel  h2 {
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+/* --------------------------------------------------------- */
+/* Inputs */
+/* --------------------------------------------------------- */
+.input-field {
+  font-size: 24px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.base-switch {
+  margin-bottom: 10px;
+}
+
+.base-switch button {
+  font-size: 18px;
+  padding: 5px;
+  margin: 0 4px;
+  border-radius: 5px;
+}
+/* --------------------------------------------------------- */
+/* Convert Button */
+/* --------------------------------------------------------- */
+.convert-btn {
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+/* --------------------------------------------------------- */
+/* Result Box */
+/* --------------------------------------------------------- */
+.result-box {
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
 }
