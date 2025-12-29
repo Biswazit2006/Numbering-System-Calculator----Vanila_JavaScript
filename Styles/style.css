@@ -202,7 +202,7 @@ box-shadow: -1px 1px 11px 4px rgba(0,0,0,0.24);
   cursor: pointer;
 }
 .input-container .input-row-container .input-btn:hover {
-  background-color: var(--font-dark-colour);
+  background-color: var(--highlight-colour);
   transition: 0.2s;
 }
 .input-container .input-row-container .active {
