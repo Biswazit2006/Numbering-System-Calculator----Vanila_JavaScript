@@ -24,6 +24,9 @@
   const resultTwo = document.getElementById("resultTwo");
   const resultThree = document.getElementById("resultThree");
 
+  // Others
+  // const mathResultOne = document.getElementById("mathResultOne");
+
 //=====================================================
 // Navbar Hamburg Function
 // ====================================================
@@ -116,6 +119,8 @@ convertBtnOne.addEventListener("click",()=>{
 currentNum = Number(inputOne.value) ;
 convertedNum = currentNum.toString(targetBase)
 resultOne.innerHTML = convertedNum;
+mathResultOne.style.display = "flex";
+decToAny(inputOne.value,targetBase);
   }
 });
 
@@ -123,11 +128,16 @@ resultOne.innerHTML = convertedNum;
 // Convert Button Two (Any Base to Decimal)
 // ===========================================================================
 convertBtnTwo.addEventListener("click",()=>{
-resdivShow ("flex");
-currentNum = inputTwo.value ;
-convertedNum = convertToDecimal(currentNum,targetBase)
-resultTwo.innerHTML = convertedNum;
-});
+  resdivShow ("flex");
+  if(targetBase === 0){
+    resultTwo.innerHTML = "You don't Select the base";
+  }else{
+    let inputNum = Number(inputTwo.value) 
+    let resNum = inputNum.toString(targetBase)
+    resultTwo.innerHTML = resNum;
+  }
+  console.log(inputTwo.value)
+})
 
 // ===========================================================================
 // Convert Button Three (Any Base to Any Base)
@@ -167,9 +177,95 @@ function convertToDecimal(numStr, base) {
   return decimal;
 };
 
+// ===========================================================================
+// Master Converter Function
+// ===========================================================================
+function toDecimal(numStr, base) {
+  const [integerPart, fractionalPart] = numStr.split('.');
+  
+  // Convert integer part using parseInt
+  let decimal = parseInt(integerPart, base);
 
-// console.log(convertToDecimal("1010",2))
+  if (fractionalPart) {
+    // Add each fractional digit: digit * base^-n
+    for (let i = 0; i < fractionalPart.length; i++) {
+      const digitValue = parseInt(fractionalPart[i], base);
+      decimal += digitValue / Math.pow(base, i + 1);
+    }
+  }
+  return decimal;
+};
 
+// ---------------------------------------------------------------------------
+// Decemal To any
+// ---------------------------------------------------------------------------
+function decToAny(numStr,base){
+  const [integerPart, fractionalPart] = numStr.split('.');
+    // Convert integer part using parseInt 
+  let x = document.querySelector(".divider-base").innerHTML = base;
+  let y = document.querySelector(".the-number").innerHTML = integerPart ;
+  let i = Number(integerPart);
+  let loopCounter = 1;
+  a = i % base;
+  do {
+    i = Math.floor(i/base) ;
+
+  let firstPartDiv = document.createElement("div");
+  firstPartDiv.className = "first-part-div";
+  resOnefirst.appendChild(firstPartDiv)
+
+    let divFirst = document.createElement("div");
+    divFirst.className = "div-first";
+    firstPartDiv.appendChild(divFirst);
+
+    let baseDivider = document.createElement("p");
+    baseDivider.innerText = base;
+    divFirst.appendChild(baseDivider);
+    
+    let divSecond = document.createElement("div");
+    divSecond.className = "div-second";
+    let margin = Number(loopCounter*10).toString() ;
+    divFirst.style.marginLeft = margin + "px" ;
+    divFirst.appendChild(divSecond);
+
+    let diviRes = document.createElement("P");
+    diviRes.innerHTML = i + "→" + a;
+    divSecond.appendChild(diviRes);
+
+    a = i % base;
+    loopCounter ++;       
+}while (i >0);
+
+// Convert integer part using parseInt 
+let nmLenth = Number(fractionalPart.length );
+let floatdiviNum = "1";
+for (let i = 1; i <= nmLenth; i++) {
+  floatdiviNum += "0";
+}
+let fractionalNum = Number(fractionalPart) / Number(floatdiviNum);
+
+let inf = 1;
+let mainnNum = fractionalNum;
+while( inf < 8){
+  let res = mainnNum * base;
+
+  let secPera = document.createElement("p");
+  secPera.innerText = `${mainnNum.toFixed(2)} × ${base } = ${res.toFixed(2)}`;
+  resOneSecond.appendChild(secPera);
+  const [a, b] = res.toString().split('.');
+  mainnNum = Number(res) - Number(a);
+  inf++;   
+}
+
+}
+
+// decToAny("100.10",8)
+
+
+
+// ===========================================================================
+// Others Function
+// ===========================================================================
 function resdivShow (display){
   let resdiv = document.querySelectorAll(".result-box");
 console.log(resdiv)
