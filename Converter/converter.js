@@ -98,13 +98,22 @@ Array.from(clearBtn).forEach((btn)=>{
     })
 });
 function clearAll(){
-let currentNum = 0;
-let convertedNum = 0;
-let targetBase = 0;
-let currentBase = 0;
-let baseToConvert = 0;
-inputOne.value = inputTwo.value = inputThree.value = 0;
-resdivShow("none");
+  currentNum = 0;  // Updates global variable
+  convertedNum = 0;
+  targetBase = 0;
+  currentBase = 0;
+  baseToConvert = 0;
+  inputOne.value = "";
+  inputTwo.value = "";
+  inputThree.value = "";
+  inputThebase.value = "";
+  inputTobase.value = "";
+  resdivShow("none");
+  
+  // Clear generated math results
+  document.getElementById("resOnefirst").innerHTML = "";
+  document.getElementById("resOneSecond").innerHTML = "";
+  document.getElementById("resTwoSfirst").innerHTML = "";
 
 }
 
@@ -113,6 +122,13 @@ resdivShow("none");
 // ===========================================================================
 convertBtnOne.addEventListener("click",()=>{
   resdivShow ("flex");
+
+  //  if(!input || isNaN(input)){
+  //   resultOne.innerHTML = "Please enter a valid number";
+  //   resultOne.style.display = "flex";
+  //   return;
+  // }
+
   if(targetBase === 0){
     resultOne.innerHTML = "You don't Select the base";
   }else{
@@ -125,20 +141,24 @@ decToAny(inputOne.value,targetBase);
 });
 
 // ===========================================================================
-// Convert Button Two (Any Base to Decimal)
+// Convert Button Two (Any Base to Decimal)///////////////////////////////////
 // ===========================================================================
 convertBtnTwo.addEventListener("click",()=>{
   resdivShow ("flex");
   if(targetBase === 0){
     resultTwo.innerHTML = "You don't Select the base";
   }else{
-    let inputNum = Number(inputTwo.value) 
-    let resNum = inputNum.toString(targetBase)
-    resultTwo.innerHTML = resNum;
-  }
-  console.log(inputTwo.value)
-})
 
+  // convertedNum = currentNum.toString(targetBase)
+  // resultOne.innerHTML = convertedNum;  
+  }
+  currentNum = inputTwo.value ;
+  console.log(currentNum)
+  console.log(targetBase)
+  convertedNum = anyToDec(currentNum,targetBase);
+  console.log(convertedNum)
+  resultTwo.innerHTML = convertedNum;
+})
 // ===========================================================================
 // Convert Button Three (Any Base to Any Base)
 // ==========================================================================
@@ -159,7 +179,7 @@ convertBtnThree.addEventListener("click",()=>{
 
 
 // ===========================================================================
-// Converter Function
+// Converter Function (panel three)
 // ===========================================================================
 function convertToDecimal(numStr, base) {
   const [integerPart, fractionalPart] = numStr.split('.');
@@ -177,28 +197,9 @@ function convertToDecimal(numStr, base) {
   return decimal;
 };
 
-// ===========================================================================
-// Master Converter Function
-// ===========================================================================
-function toDecimal(numStr, base) {
-  const [integerPart, fractionalPart] = numStr.split('.');
-  
-  // Convert integer part using parseInt
-  let decimal = parseInt(integerPart, base);
-
-  if (fractionalPart) {
-    // Add each fractional digit: digit * base^-n
-    for (let i = 0; i < fractionalPart.length; i++) {
-      const digitValue = parseInt(fractionalPart[i], base);
-      decimal += digitValue / Math.pow(base, i + 1);
-    }
-  }
-  return decimal;
-};
-
 // ---------------------------------------------------------------------------
-// Decemal To any
-// ---------------------------------------------------------------------------
+// Decemal To any (First panel )
+// --------------------- ------------------------------------------------------
 function decToAny(numStr,base){
   const [integerPart, fractionalPart] = numStr.split('.');
     // Convert integer part using parseInt 
@@ -258,9 +259,73 @@ while( inf < 8){
 }
 
 }
+// ---------------------------------------------------------------------------
+// Any to Decimal (Second panel )
+// ---------------------------------------------------------------------------
+function anyToDec(numStr, base){
+  // Split the input into integer and fractional parts
+  const [integerPart, fractionalPart] = numStr.split('.');
+  // Clear any previous results
+  resTwoSfirst.innerHTML = '';
+  // Variable to hold the decimal result
+  let decimal = 0;
+  let decimalStr = `${integerPart}=`;
+  let decimalStrTwo = "→"
 
-// decToAny("100.10",8)
+  for (let i = integerPart.length - 1; i >= 0; i--) { 
+    const digitValue = integerPart[integerPart.length - 1 - i] .match(/[0-9A-F]/i) ? parseInt(integerPart[integerPart.length - 1 - i], base) : 0;
 
+    let varDecStr = `(${digitValue.toString()} × ${base.toString()} <sup> ${i.toString()} </sup> )+ `;
+    decimalStr+= varDecStr ;
+    decimalStrTwo+=digitValue * Math.pow(base, i) + " + ";
+    decimal += digitValue * Math.pow(base, i);
+  }
+
+    if (fractionalPart && fractionalPart.length > 0) {
+      let fractional = 0 ;
+      let fractionalStr = "";
+      let fractionalStrTwo = "";
+    // Add each fractional digit: digit * base^-n
+    for (let i = 1; i < fractionalPart.length + 1; i++) {
+      const digitValue = parseInt(fractionalPart[i-1], base);
+      fractionalStr += `(${digitValue.toString()} × ${base.toString()} <sup> -${i.toString()} </sup> )+ `;
+      decimal += digitValue / Math.pow(base, i + 1);
+      fractional += digitValue / Math.pow(base, i);
+      fractionalStrTwo+= digitValue / Math.pow(base, i) + " + ";
+    }
+    let finalStr = decimalStr + fractionalStr ;
+    finalStr = finalStr.slice(0, -2); // Remove the last ' + '
+    let finalPera = document.createElement("p");
+    finalPera.innerHTML = finalStr;
+    resTwoSfirst.appendChild(finalPera);
+    
+    let finalStrTwo = decimalStrTwo + fractionalStrTwo ;
+    finalStrTwo = finalStrTwo.slice(0, -2); // Remove the last ' + '
+    let finalPeraTwo = document.createElement("p");
+    finalPeraTwo.innerHTML = finalStrTwo;
+    resTwoSfirst.appendChild(finalPeraTwo);
+    let fres = document.createElement("p");
+    fres.innerHTML =`(${integerPart})<sub> ${10}</sub>= (${decimal})<sub> ${base}</sub>` ;
+    resTwoSfirst.appendChild(fres);
+    
+    
+  }else{
+  let decimalPera = document.createElement("p");
+  decimalStr = decimalStr.slice(0, -2); // Remove the last ' + '
+  decimalPera.innerHTML = decimalStr;
+  resTwoSfirst.appendChild(decimalPera);
+
+  let decimalPeraTwo = document.createElement("p");
+  decimalStrTwo = decimalStrTwo.slice(0, -2); // Remove the last ' + '
+  decimalPeraTwo.innerHTML = decimalStrTwo;
+  resTwoSfirst.appendChild(decimalPeraTwo);
+  let fres = document.createElement("p");
+  fres.innerHTML =`(${integerPart})<sub> ${10}</sub>= (${decimal})<sub> ${base}</sub>` ;
+  resTwoSfirst.appendChild(fres);
+  }
+  return decimal;
+
+}
 
 
 // ===========================================================================

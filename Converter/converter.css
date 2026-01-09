@@ -350,3 +350,20 @@ background-color: var(--secondary-color);
   font-size: 32px;
   font-weight: 600;
 }
+/* ================================================= */
+/* math-result -12*/
+/* ================================================= */
+#panel2 > .math-result > #resTwoSfirst{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#panel2 > .math-result > #resTwoSfirst > p{
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--font-dark-colour);
+  text-align: start;
+}
+#panel2 > .math-result > #resTwoSfirst > p:nth-child(2) p:first-letter{
+  color: red;
+}
