@@ -152,6 +152,7 @@ convertBtnTwo.addEventListener("click",()=>{
   // convertedNum = currentNum.toString(targetBase)
   // resultOne.innerHTML = convertedNum;  
   }
+  mathResultTWo.style.display = "flex";
   currentNum = inputTwo.value ;
   console.log(currentNum)
   console.log(targetBase)

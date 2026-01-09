@@ -127,5 +127,54 @@
   padding: 5px;
   border-radius: 8px;
 }
+/* ================================================= */
+/* math-result*/
+/* ================================================= */
+/* .panel .math-result{
+  width: 100%;
+  max-width: 1020px;
+  display: none;
+  flex-direction: column;
+  background: var(--white-colour);
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+} */
+/* ================================================= */
+/* math-result -11*/
+/* ================================================= */
+.panel > .math-one {
+  padding: 5%;
+  flex-direction: column;
+}
+.panel >.math-one > .parent-math-first >.first-part-div >.div-first> p{
+    font-size: 24px;
+}
 
+.panel> .math-one > .parent-math-first >.first-part-div >.div-first> .div-second>p{
+  font-size: 24px;
+}
+
+.panel > .math-one > .second-part-div{
+  margin-top: 20px;
+}
+.panel > .math-one > .second-part-div p{
+  font-size: 24px;
+
+}
+/* ================================================= */
+/* math-result -12*/
+/* ================================================= */
+#panel2 > .math-result > #resTwoSfirst{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#panel2 > .math-result > #resTwoSfirst > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--font-dark-colour);
+  text-align: start;
+}
 }
