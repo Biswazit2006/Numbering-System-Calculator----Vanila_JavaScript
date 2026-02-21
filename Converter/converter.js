@@ -132,11 +132,13 @@ convertBtnOne.addEventListener("click",()=>{
   if(targetBase === 0){
     resultOne.innerHTML = "You don't Select the base";
   }else{
+    // resOnefirst.innerHTML = "";
 currentNum = Number(inputOne.value) ;
 convertedNum = currentNum.toString(targetBase)
 resultOne.innerHTML = convertedNum;
 mathResultOne.style.display = "flex";
-decToAny(inputOne.value,targetBase);
+// decToAny(inputOne.value,targetBase);
+decToAnyTwo(inputOne.value,targetBase);
   }
 });
 
@@ -209,6 +211,7 @@ function decToAny(numStr,base){
   let i = Number(integerPart);
   let loopCounter = 1;
   a = i % base;
+  // a = 0;
   do {
     i = Math.floor(i/base) ;
 
@@ -234,11 +237,71 @@ function decToAny(numStr,base){
     diviRes.innerHTML = i + "→" + a;
     divSecond.appendChild(diviRes);
 
+    // i = Math.floor(i/base) ;
     a = i % base;
     loopCounter ++;       
 }while (i >0);
 
 // Convert integer part using parseInt 
+let nmLenth = Number(fractionalPart.length );
+let floatdiviNum = "1";
+for (let i = 1; i <= nmLenth; i++) {
+  floatdiviNum += "0";
+}
+let fractionalNum = Number(fractionalPart) / Number(floatdiviNum);
+
+let inf = 1;
+let mainnNum = fractionalNum;
+while( inf < 8){
+  let res = mainnNum * base;
+
+  let secPera = document.createElement("p");
+  secPera.innerText = `${mainnNum.toFixed(2)} × ${base } = ${res.toFixed(2)}`;
+  resOneSecond.appendChild(secPera);
+  const [a, b] = res.toString().split('.');
+  mainnNum = Number(res) - Number(a);
+  inf++;   
+}
+
+}
+
+function decToAnyTwo(numStr,base){
+  resOnefirst.innerHTML = "";
+   const [integerPart, fractionalPart] = numStr.split('.');
+   let i = Number(integerPart);
+     let loopCounter = 0;
+    let a = 0;
+
+  do {
+  let firstPartDiv = document.createElement("div");
+  firstPartDiv.className = "first-part-div";
+  resOnefirst.appendChild(firstPartDiv)
+
+    let divFirst = document.createElement("div");
+    divFirst.className = "div-first";
+    firstPartDiv.appendChild(divFirst);
+
+    let baseDivider = document.createElement("p");
+    baseDivider.innerText = base;
+    divFirst.appendChild(baseDivider);
+    
+    let divSecond = document.createElement("div");
+    divSecond.className = "div-second";
+    let margin = Number(loopCounter*10).toString() ;
+    divFirst.style.marginLeft = margin + "px" ;
+    divFirst.appendChild(divSecond);
+
+    let diviRes = document.createElement("P");
+    diviRes.innerHTML = i + "→" + a;
+    divSecond.appendChild(diviRes);
+    // i = Math.floor(i/base) ;
+    a = i % base;
+    i = Math.floor(i/base) ;
+    
+    loopCounter ++;       
+}while (i >0);
+
+// Convert float part using parseInt 
 let nmLenth = Number(fractionalPart.length );
 let floatdiviNum = "1";
 for (let i = 1; i <= nmLenth; i++) {
